@@ -1,2 +1,5 @@
-assembly/
-trimming/
+assembly/*
+trimming/*
+calidades/*
+calidades_trim/*
+taxonomy/*
