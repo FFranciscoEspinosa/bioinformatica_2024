@@ -84,6 +84,7 @@ Las muestras que no superaron alguna prueba se encuentran en el archivo [*failed
 Observamos que de las 1940 pruebas a las que se sometieron todas las muestras, solo 160 de ellas no fueron superadas de las cuales la mayoría de ellas fue *Per base sequence content*. Además, todas las muestras tuvieron un total de 0 secuencias marcadas como de pobre calidad.
 A continuación mostramos algunas gráficas de la prueba *Per base sequence quality*.
 De las muestras pareadas mostramos a SRR5946931_1.
+
 ![Image](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/imagenes/calidades/SRR5946931_1_calidades.png?raw=true)
 
 De las muestras no pareadas elegimos a ERR210098 para observar su calidad.
