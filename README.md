@@ -147,8 +147,3 @@ megahit -r ../trimming/nombre_muestra/trimmed/nombre_muestra.trim.fastq.gz \
 -o ../assembly/nombre_muestra
 ```
 
-Como caso especial tenemos a SRR598348 cuyas calidades parecen haberse puesto manualmente.
-![Image](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/imagenes/calidades/SRR5983481_2_calidades.png?raw=true)
-
-## Trimming 
-Para depurar las muestras se usó el programa [*trimmomatic*](http://www.usadellab.org/cms/?page=trimmomatic).  Se sigue la misma lógica de ejecutar *trimmomatic* separando a las muestras en los dos conjuntos, por lo que solo pondremos una parte del script [*trim.sh*](http://www.usadellab.org/cms/?page=trimmomatic)
