@@ -1,0 +1,149 @@
+FAIL	Per base sequence content	ERR209160_2.trim.fastq.gz
+FAIL	Per sequence GC content	ERR209470_1.trim.fastq.gz
+FAIL	Per sequence GC content	ERR209470_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935765_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935765_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935774_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935784_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935789_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935789_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935808_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935841_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935841_2.trim.fastq.gz
+FAIL	Sequence Duplication Levels	SRR5935875_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935875_2.trim.fastq.gz
+FAIL	Sequence Duplication Levels	SRR5935875_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935894_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935898_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935898_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935904_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935904_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935916_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935923_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935923_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935931_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5935931_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936031_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936043_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936043_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936056_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936056_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936062_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936071_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936076_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936076_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936112_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936112_2.trim.fastq.gz
+FAIL	Per base sequence quality	SRR5936141_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936141_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936186_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936197_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936197_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936198_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936208_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936218_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5936218_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946623_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946623_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946651_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946651_2.trim.fastq.gz
+FAIL	Per base sequence quality	SRR5946672_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946672_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946672_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946685_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946685_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946707_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946707_2.trim.fastq.gz
+FAIL	Per base sequence quality	SRR5946712_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946712_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946712_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946716_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946716_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946731_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946737_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946737_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946757_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946757_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946790_1.trim.fastq.gz
+FAIL	Sequence Duplication Levels	SRR5946790_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946790_2.trim.fastq.gz
+FAIL	Sequence Duplication Levels	SRR5946790_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946829_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946829_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946845_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946845_2.trim.fastq.gz
+FAIL	Per base sequence quality	SRR5946861_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946861_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946861_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946866_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946894_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946894_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946915_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946915_2.trim.fastq.gz
+FAIL	Sequence Duplication Levels	SRR5946931_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946931_2.trim.fastq.gz
+FAIL	Sequence Duplication Levels	SRR5946931_2.trim.fastq.gz
+FAIL	Per base sequence quality	SRR5946935_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946935_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946935_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946943_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946946_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946946_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946988_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946995_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5946995_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947000_1.trim.fastq.gz
+FAIL	Sequence Duplication Levels	SRR5947000_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947000_2.trim.fastq.gz
+FAIL	Sequence Duplication Levels	SRR5947000_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947007_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947007_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947008_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947008_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947010_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947010_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947019_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947019_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947027_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947042_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947042_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947048_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947048_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947057_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947070_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947072_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947080_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947104_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947834_1.trim.fastq.gz
+FAIL	Adapter Content	SRR5947834_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5947834_2.trim.fastq.gz
+FAIL	Adapter Content	SRR5947834_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5983317_1.trim.fastq.gz
+FAIL	Adapter Content	SRR5983317_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5983317_2.trim.fastq.gz
+FAIL	Adapter Content	SRR5983317_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5983326_1.trim.fastq.gz
+FAIL	Adapter Content	SRR5983326_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5983326_2.trim.fastq.gz
+FAIL	Adapter Content	SRR5983326_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5983372_1.trim.fastq.gz
+FAIL	Adapter Content	SRR5983372_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5983372_2.trim.fastq.gz
+FAIL	Adapter Content	SRR5983372_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5983393_1.trim.fastq.gz
+FAIL	Adapter Content	SRR5983393_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5983393_2.trim.fastq.gz
+FAIL	Adapter Content	SRR5983393_2.trim.fastq.gz
+FAIL	Adapter Content	SRR5983406_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5983406_2.trim.fastq.gz
+FAIL	Adapter Content	SRR5983406_2.trim.fastq.gz
+FAIL	Adapter Content	SRR5983422_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5983422_2.trim.fastq.gz
+FAIL	Adapter Content	SRR5983422_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5983470_1.trim.fastq.gz
+FAIL	Adapter Content	SRR5983470_1.trim.fastq.gz
+FAIL	Per base sequence content	SRR5983470_2.trim.fastq.gz
+FAIL	Adapter Content	SRR5983470_2.trim.fastq.gz
+FAIL	Per base sequence content	SRR5983479_1.trim.fastq.gz
+FAIL	Adapter Content	SRR5983479_1.trim.fastq.gz
+FAIL	Adapter Content	SRR5983479_2.trim.fastq.gz
