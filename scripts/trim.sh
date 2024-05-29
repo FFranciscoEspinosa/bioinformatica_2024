@@ -11,6 +11,7 @@ mkdir ../trimming/${base}/untrimmed
 trimmomatic PE -threads 4 ../reads_par/${base}_1.fastq.gz ../reads_par/${base}_2.fastq.gz \
 ../trimming/${base}/trimmed/${base}_1.trim.fastq.gz ../trimming/${base}/untrimmed/${base}_1un.trim.fastq.gz \
 ../trimming/${base}/trimmed/${base}_2.trim.fastq.gz ../trimming/${base}/untrimmed/${base}_2un.trim.fastq.gz \
+#Se guarda la información del proceso en summary
 -summary ../trimming/${base}/summary.txt SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15
 done
 
