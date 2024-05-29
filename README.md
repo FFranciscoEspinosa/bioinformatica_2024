@@ -6,12 +6,12 @@ En este repositorio se encuentra el procesamiento básico de la clase de bioinfo
 Estas 100 muestras son un subconjunto de las 613 muestras dadas por el reto gut de CAMDA 2024. Los metadatos proporcionados por CAMDA se encuentran en el archivo [*metadatos.csv*](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/metadatos.csv) .De estas 100 muestras, 94 de ellas eran muestras pareadas y las 6 restantes no lo eran.
 Las 94 muestras:
 - Fueron realizadas por los proyectos HMP2, PRJEB1220 y PRJNA389280. 
-- Poseen alrededor de 14000000 pares de bases.
+- Poseen alrededor de 12823825 pares de bases.
 - Tienen cerca de 50 a 101 de longitud de reads .
 
 Las 6 muestras restantes:
 - Tienen por ID ERR210098, ERR210519, ERR210592, ERR210091, ERR210263 y ERR210568. Todas ellas pertenecientes al proyecto PRJEB1220.
-- Poseen alrededor de 152000 pares de bases.
+- Poseen alrededor de 2198481 pares de bases.
 - Contienen cerca de 30 a 90 de longitud de reads .
 
 Para el procesamiento de estas muestras, se dividieron en dos directorios [*\reads_par*](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/reads_par) y [*\reads_no_par*](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/reads_no_par), esto se logró con el script [*obtener_reads.sh*](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/scripts/obtener_reads.sh), que se muestra a continuación.
@@ -90,6 +90,62 @@ De las muestras pareadas mostramos a SRR5946931_1.
 De las muestras no pareadas elegimos a ERR210098 para observar su calidad.
 
 ![Image](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/imagenes/calidades/ERR210098_calidades.png?raw=true)
+
+Como caso especial tenemos a SRR598348_2 cuyas calidades parecen haberse puesto manualmente.
+![Image](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/imagenes/calidades/SRR5983481_2_calidades.png?raw=true)
+
+## Trimming 
+Para depurar las muestras se usó el programa [*trimmomatic*](http://www.usadellab.org/cms/?page=trimmomatic).  Se sigue la misma lógica que antes para ejecutar *trimmomatic*, separando a las muestras en los dos conjuntos, por lo que solo pondremos una parte del script [*trim.sh*](http://www.usadellab.org/cms/?page=trimmomatic). 
+
+```{shell}
+#Se corre trimmomatic para las muestras pareadas
+#con 4 núcleos y con el archivo TrueSeq3-PE.fa que se encuentra en el directorio scripts
+#la salida trim se deposita en trimming/nombre_muestra/trimmed,
+#la untrimmed en /trimming/nombre_muestra/untrimmed
+trimmomatic PE -threads 4 ../reads_par/nombre_muestra_1.fastq.gz ../reads_par/nombre_muestra_2.fastq.gz \
+../trimming/nombre_muestra/trimmed/nombre_muestra_1.trim.fastq.gz ../trimming/nombre_muestra/untrimmed/nombre_muestra_1un.trim.fastq.gz \
+../trimming/nombre_muestra/trimmed/nombre_muestra_2.trim.fastq.gz ../trimming/nombre_muestra/untrimmed/nombre_muestra_2un.trim.fastq.gz \
+#Se guarda la información del proceso en summary
+-summary ../trimming/nombre_muestra/summary.txt SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15
+```
+
+```{shell}
+#Se corre trimmomatic como antes pero para reads no pareados
+trimmomatic SE -threads 4 ../reads_no_par/nombre_muestra.fastq.gz \
+../trimming/nombre_muestra/trimmed/nombre_muestra.trim.fastq.gz \
+-summary ../trimming/nombre_muestra/summary.txt SLIDINGWINDOW:4:20 MINLEN:35 ILLUMINACLIP:TruSeq3-PE.fa:2:40:15
+```
+Al analizar los archivos *summary.txt* que se pueden encontrar en *trimming/nombre_muestra*, obtuvimos que en promedio las muestras pareadas conservan en promedio un 94.58% de reads después del proceso, mientras que las muestras no pareadas un promedio de 65.61%.
+
+Como antes, la muestra SRR598348 fue algo especial y *trimmomatic* no realizó ningún proceso y por lo tanto se tomará a la misma como ya trimmeada.
+
+## Calidades después del trimming
+De manera similar a antes, se evaluaron las calidades pero ahora de las muestras ya trimmeadas. El script usado fue [*calidades_trim.sh*](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/scripts/calidades_trim.sh), que es muy parecido al anteriormente usado para obtener calidades, por lo que no detallaremos sus especificaciones.
+
+Al igual que antes se obtuvieron los reportes [_failed_test.txt_](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/calidades_trim/failed_test.txt) y [_p_qual.txt_](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/calidades_trim/p_qual.txt). A diferencia de antes, solo 149 de las 1940 pruebas no fueron superadas. Pero, como antes, las muestras tuvieron cero secuencias marcadas como de pobre calidad.
+
+Comparando con las gráficas anteriores, para SRR5946931_1 no hubo muchos cambios, pues como mencionamos antes en el trimming, se conservó cerca del 94% de reads.
+
+![Image](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/imagenes/calidades_trim/SRR5946931_1_trim_calidades.png?raw=true)
+
+Para ERR210098 sí hubo unas pequeñas diferencias que se pueden notar, mejorando un poco la calidad de los reads.
+
+![Image](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/imagenes/calidades_trim/ERR210098_trim_calidades.png?raw=true)
+
+
+## Ensamblaje
+Para el ensamblaje de las muestras, se utilizó el programa [*megahit*](https://github.com/voutcn/megahit).  Se siguió la lógica de los scripts anteriores con la siguientes dos instrucciones. Para las muestras pareadas se pasan los pares con las flags -1 y -2, posteriormente las salidas se almacenan en assembly/nombre_muestra
+
+```{shell}
+megahit -1 ../trimming/nombre_muestra/trimmed/nombre_muestra_1.trim.fastq.gz -2 \
+../trimming/nombre_muestra/trimmed/nombre_muestra_2.trim.fastq.gz -o \
+../assembly/nombre_muestra.
+```
+Para las muestras no pareadas se usa la bandera -r y de igual manera, las salidas se almacenan en assembly/nombre_muestra
+```{shell}
+megahit -r ../trimming/nombre_muestra/trimmed/nombre_muestra.trim.fastq.gz \
+-o ../assembly/nombre_muestra
+```
 
 Como caso especial tenemos a SRR598348 cuyas calidades parecen haberse puesto manualmente.
 ![Image](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/imagenes/calidades/SRR5983481_2_calidades.png?raw=true)
