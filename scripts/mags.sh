@@ -7,7 +7,7 @@ base=$(basename ${line} _1.fastq.gz)
 #ya trimmeados. La salidas e deposita en el directorio mags/nombre_muestra
 
 run_MaxBin.pl -thread 8 -contig ../assembly/${base}/final.contigs.fa -reads ../trimming/${base}/trimmed/${base}_1.trim.fastq.gz \
--reads2 ../trimming/${base}/trimmed/${base}_2.trim.fastq.gz -out ../mags/${base}
+-reads2 ../trimming/${base}/trimmed/${base}_2.trim.fastq.gz -out ../mags/${base}/${base}
 
 done
 
@@ -21,5 +21,5 @@ do
 #Se toma el nombre de la muestra y se corre Maxbin
 base=$(basename ${line} .fastq.gz)
 run_MaxBin.pl -thread 8 -contig ../assembly/${base}/final.contigs.fa -reads ../trimming/${base}/trimmed/${base}.trim.fastq.gz \
--out ../mags/${base}
+-out ../mags/${base}/${base}
 done
