@@ -146,4 +146,37 @@ Para las muestras no pareadas se usa la bandera -r y de igual manera, las salida
 megahit -r ../trimming/nombre_muestra/trimmed/nombre_muestra.trim.fastq.gz \
 -o ../assembly/nombre_muestra
 ```
+Como las muestra SRR5983481 no generó archivos después del trimming, su ensamblaje fue hecho aparte del script.
+## Binning
+Para obtener los MAGs de cada muestra, se usó [*MaxBin*](https://sourceforge.net/projects/maxbin/). La orden genérica para las muestras pareadas fue la siguiente:
+```{shell}
+run_MaxBin.pl -thread 8 -contig ../assembly/nombre_muestra/final.contigs.fa \
+-reads ../trimming/nombre_muestra/trimmed/nombre_muestra_1.trim.fastq.gz \
+-reads2 ../trimming/nombre_muestra/trimmed/nombre_muestra_2.trim.fastq.gz \
+-out ../mags/nombre_muestra/nombre_muestra
+```
+Para las no pareadas la orden es idéntica, solo se debe retirar el input de *-reads2*. El script que se usó se encuentra en [*\scripts\mags.sh*](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/scripts/mags.sh). El script no funcionó para la muestra SRR5983481, por lo que se manejó aparte esta muestra.
+
+Los MAGs obtenidos se encuentran en el directorio *mags/*. Se elaboró un reporte [*summary.txt*](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/mags/summary.txt), en el que se encuentran las completitudes, longitudes y contenido GC de cada MAG obtenido. En total se obtuvieron 1211 MAGs, los cuales tienen en promedio un 65.06% de completitud del genoma, poseen genomas desde 105791 de longitud hasta 10379340 y en promedio tienen 45.80% de contenido GC.
+
+
+
+## Asignación taxonómica
+La asignación taxonómica se realizó con [*kraken2*](https://ccb.jhu.edu/software/kraken2/), tomando la base de datos almacenada en 
+*/files/db_kraken2* del servidor betterlab. Para kraken, se usaron las muestras trimmeadas, las salidas *.kraken* se almacenaron en el directorio *taxonomy* y los reportes se encuentran en [*taxonomy/reports*](https://github.com/FFranciscoEspinosa/bioinformatica_2024/tree/main/taxonomy/reports). El script usado se encuentra en [*scripts/taxonomy.sh*](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/scripts/taxonomy.sh).
+
+La instrucción usual para las muestras pareadas es:
+```{shell}
+kraken2 --db /files/db_kraken2 --threads 4 --paired ../trimming/nombre_muestra/trimmed/nombre_muestra_1.trim.fastq.gz ../trimming/nombre_muestra/trimmed/nombre_muestra_2.trim.fastq.gz \
+--output ../taxonomy/nombre_muestra.kraken \
+--report ../taxonomy/reports/nombre_muestra.report
+```
+Para las no pareadas se quita la flag --paired y se pasa el archivo *.trim.fastq.gz*.
+
+
+Para las muestras no pareadas se usa la bandera -r y de igual manera, las salidas se almacenan en assembly/nombre_muestra
+```{shell}
+megahit -r ../trimming/nombre_muestra/trimmed/nombre_muestra.trim.fastq.gz \
+-o ../assembly/nombre_muestra
+```
 
