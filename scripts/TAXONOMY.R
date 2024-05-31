@@ -25,25 +25,20 @@ merged_metagenomes <- subset_taxa(merged_metagenomes, Kingdom == "Bacteria")
 ##OBTENER INDICE ALPHA con n row pone las graficas en n
 ##filas, title el titulo y sortby las ordena de acuerdo
 ##a OBSERVED CHAO1 O SHANNON
-plot_richness(physeq = merged_metagenomes, 
-              measures = c("Observed","Chao1","Shannon"), nrow = 2, title = "CUATRO CIENEGAS XD", sortby = "Shannon") 
-##ver cuantas celdas en blanco hay en el nivel taxonomico
-summary(merged_metagenomes@tax_table@.Data== "")
-##QUEDARSE CON SOLO LOS DATOS QUE TIENEN INFORMACIÓN
-##DE GENERO(o cualquier otro nivel que quieras)
+
+plot_richness(physeq = merged_metagenomes, title = "Alpha diversidad",
+              measures = c("Observed","Chao1","Shannon"), nrow = 3) 
+
+
 merged_metagenomes <- subset_taxa(merged_metagenomes, Genus != "")
-#PONER EN PORCENTAJE LA CANTIDAD DE OTUS
 percentages <- transform_sample_counts(merged_metagenomes, function(x) x*100 / sum(x) )
-#BETA DIVERSIDAD
+
+
 meta_ord <- ordinate(physeq = percentages, method = "NMDS", 
                      distance = "bray")
-#CARGAR METADATOS
-metadata_cuatroc <- data.frame(Sample=c("JC1A","JP4D","JP41"),Treatment=c("Control mesocosm", "Fertilized pond", "Unenriched pond"))
-rownames(metadata_cuatroc) <- metadata_cuatroc$Sample # Using sample names as row names  
-percentages@sam_data <- sample_data(metadata_cuatroc) # Adding metadata to sam_data table of phyloseq object percentages  
-meta_ord <- ordinate(physeq = percentages, method = "NMDS", distance = "bray") # Calculating beta diversity    
-plot_ordination(physeq = percentages, ordination = meta_ord, color = "Treatment") + # Plotting beta diversity.  
-  geom_text(mapping = aes(label = Sample), size = 3, vjust = 1.5) 
+
+plot_ordination(physeq = percentages, ordination = meta_ord)
+
 
 
 ###################EXPLORAR DATOS A DIFERENTES NIVELES TAXONOMICOS
@@ -69,7 +64,8 @@ phylum_colors_rel<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(perce
 relative_plot <- ggplot(data=percentages_df, aes(x=Sample, y=Abundance, fill=Phylum))+ 
   geom_bar(aes(), stat="identity", position="stack")+
   scale_fill_manual(values = phylum_colors_rel)
-absolute_plot | relative_plot
+absolute_plot
+relative_plot
 
 #CREANDO GRAFICA PARA DESPRECIAR A AQUELLOS MENORES A 0.5
 percentages_df$Phylum <- as.character(percentages_df$Phylum) # Return the Phylum column to be of type character
@@ -81,9 +77,9 @@ phylum_colors_rel<- colorRampPalette(brewer.pal(8,"Dark2")) (length(levels(perce
 relative_plot <- ggplot(data=percentages_df, aes(x=Sample, y=Abundance, fill=Phylum))+ 
   geom_bar(aes(), stat="identity", position="stack")+
   scale_fill_manual(values = phylum_colors_rel)
-absolute_plot | relative_plot
+absolute_plot 
 
-
+relative_plot
 
 
 
@@ -101,8 +97,8 @@ plot_cyanos <- ggplot(data=cyanos_df, aes(x=Sample, y=Abundance, fill=Genus))+ g
 plot_cyanos
 
 
-###EJERCICIO 2
-proteo <- subset_taxa(merged_metagenomes, Phylum == "Proteobacteria")
+###Explorar genero de phylum Bacteroidetes
+proteo <- subset_taxa(merged_metagenomes, Phylum == "Bacteroidetes")
 proteo_percentages <- transform_sample_counts(proteo, function(x) x*100 / sum(x) )
 proteo_glom <- tax_glom(proteo_percentages, taxrank = "Genus")
 proteo_df <- psmelt(proteo_glom)
@@ -114,4 +110,3 @@ plot_proteo <- ggplot(data=proteo_df, aes(x=Sample, y=Abundance, fill=Genus))+
   geom_bar(aes(), stat="identity", position="stack")+
   scale_fill_manual(values = genus_colors_proteo)
 plot_proteo
-# 
