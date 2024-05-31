@@ -172,11 +172,33 @@ kraken2 --db /files/db_kraken2 --threads 4 --paired ../trimming/nombre_muestra/t
 --report ../taxonomy/reports/nombre_muestra.report
 ```
 Para las no pareadas se quita la flag --paired y se pasa el archivo *.trim.fastq.gz*.
+Se intentó explorar la taxonomía con krona, pero hubo problemas en betterlab.
 
 
-Para las muestras no pareadas se usa la bandera -r y de igual manera, las salidas se almacenan en assembly/nombre_muestra
+
+
+
+
+## Exploración taxonómica
+De el directorio [*taxonomy/reports*](https://github.com/FFranciscoEspinosa/bioinformatica_2024/tree/main/taxonomy/reports) se ejecutó el siguiente comando
 ```{shell}
-megahit -r ../trimming/nombre_muestra/trimmed/nombre_muestra.trim.fastq.gz \
--o ../assembly/nombre_muestra
+kraken-biom * --fmt json -o ../../tax.biom
 ```
+El archivo [*tax.biom*](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/tax.biom) servirá para analizar la taxonomía de nuestras muestras usando el script [*TAXONOMY.R*](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/scripts/TAXONOMY.R) de RStudio.
+Como procesamiento básico se quitan los primeros cuatro caracteres, pues son el prefijo que especifica al nivel taxonómico que pertenece el taxon. Además, se cambió el nombre de las columnas para  especificar al taxon al que pertenecen. Se despreciaron aquella información que tuviera como reino distinto de Bacteria.
+Obtuvimos las siguientes gráficas para el Alpha diversidad observada, Chao1 y Shannon.
 
+![Image](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/imagenes/taxonomy/alpha_diversidad.png?raw=true)
+Usamos la distancia de [Bray-curtis](http://www.pelagicos.net/MARS6300/readings/Bray_&_Curtis_1957.pdf) y el método [*Non-Metric Multidimensional Scaling*](https://academic.oup.com/bioinformatics/article/21/6/730/199398) (NDMS), para graficar la beta diversidad.
+![Image](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/imagenes/taxonomy/beta_diversidad.png?raw=true)
+
+Calculamos la abundancia absoluta de las muestras para *Phylum* y obtuvimos la siguiente gráfica.
+
+![Image](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/imagenes/taxonomy/abundance.png?raw=true)
+
+Para la abundancia relativa de *Phylum* se agruparon aquellos *Phylum* cuya abundancia relativa era menor a 0.5% y obtuvimos la siguiente gráfica.
+![Image](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/imagenes/taxonomy/relative_abundance.png?raw=true)
+
+Observamos que el *Phylum* mas presente en casi todas las muestras fue *Bacteroidetes* y en segundo lugar *Firmicutes*.
+Después se buscó la abundancia relativa de los géneros cuyo phylum es bacteroidetes y obtenemos la siguiente gráfica 
+![Image](https://github.com/FFranciscoEspinosa/bioinformatica_2024/blob/main/imagenes/taxonomy/abundancia_relativa_bateroidetes.png?raw=true)
